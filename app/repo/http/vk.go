@@ -24,9 +24,10 @@ type vkError struct {
 	Message string `json:"error_msg"`
 }
 
-// type Api struct {
-// 	Token string
-// }
+type result struct {
+	Count     int              `json:"count"`
+	Galleries []models.Gallery `json:"items"`
+}
 
 func (r *HttpRepo) request(method string, params map[string]string) (result json.RawMessage, e error) {
 
@@ -79,23 +80,20 @@ func (r *HttpRepo) Close() error {
 
 // Translate ...
 func (r *HttpRepo) GetGalleries(ownerID string) []models.Gallery {
-	galleries := []models.Gallery{}
+	res := result{}
 	params := make(map[string]string)
 	params["owner_id"] = ownerID
 	params["v"] = "5.131"
 
 	result, e := r.request("photos.getAlbums", params)
-	fmt.Println(r.Token)
 	if e != nil {
 		log.Println(e)
 	}
 
 	// Remove [] from json
-	result = result[1 : len(result)-1]
+	// result = result[1 : len(result)-1]
 
-	json.Unmarshal(result, &galleries)
+	json.Unmarshal(result, &res)
 
-	fmt.Println(galleries)
-
-	return galleries
+	return res.Galleries
 }

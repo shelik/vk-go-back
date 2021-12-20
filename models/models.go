@@ -6,7 +6,7 @@ type Gallery struct {
 	OwnerID     int    `json:"owner_id"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
-	Created     string `json:"created"`
-	Updated     string `json:"updated"`
-	Size        string `json:"size"`
+	Created     int    `json:"created"`
+	Updated     int    `json:"updated"`
+	Size        int    `json:"size"`
 }
