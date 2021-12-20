@@ -1,3 +1,5 @@
 db: ""
 port: 8888
 API_KEY: apikey
+VK: 
+  token: "token"

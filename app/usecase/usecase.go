@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/shelik/vk-go-back/app"
+	"github.com/shelik/vk-go-back/models"
 )
 
 // Usecase ...
@@ -19,7 +20,7 @@ func NewUsecase(repo app.Repository) *Usecase {
 }
 
 // Translate ...
-func (u *Usecase) GetGalleries(ctx context.Context, ownerID string) []string {
+func (u *Usecase) GetGalleries(ctx context.Context, ownerID string) []models.Gallery {
 	println("UC GetGalleries")
 	return u.repo.GetGalleries(ownerID)
 }

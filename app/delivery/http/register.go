@@ -11,6 +11,6 @@ func RegisterHTTPEndpoints(router *gin.Engine, uc app.Usecase) {
 
 	apiEndpoints := router.Group("/api")
 	{
-		apiEndpoints.GET("/", h.Translate)
+		apiEndpoints.GET("/get_galleries", h.GetGalleries)
 	}
 }

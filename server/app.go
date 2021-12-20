@@ -13,6 +13,7 @@ import (
 	apphttp "github.com/shelik/vk-go-back/app/delivery/http"
 	apprepo "github.com/shelik/vk-go-back/app/repo/http"
 	appusecase "github.com/shelik/vk-go-back/app/usecase"
+	"github.com/spf13/viper"
 )
 
 // App ...
@@ -24,7 +25,8 @@ type App struct {
 
 // NewApp ...
 func NewApp() *App {
-	repo := apprepo.NewRepo()
+
+	repo := apprepo.NewRepo(viper.GetString("vk.serviceToken"))
 	uc := appusecase.NewUsecase(repo)
 	return &App{
 		appUC:   uc,

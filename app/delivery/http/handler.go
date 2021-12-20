@@ -21,7 +21,7 @@ func NewHandler(uc app.Usecase) *Handler {
 }
 
 // HelloWorld ...
-func (h *Handler) Translate(c *gin.Context) {
+func (h *Handler) GetGalleries(c *gin.Context) {
 	ownerID := c.Request.URL.Query().Get("owner_id")
 	fmt.Println(ownerID)
 
