@@ -2,7 +2,7 @@ package http
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/shelik/mtranslate/app"
+	"github.com/shelik/vk-go-back/app"
 )
 
 // RegisterHTTPEndpoints ...

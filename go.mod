@@ -1,4 +1,4 @@
-module github.com/shelik/mtranslate
+module github.com/shelik/vk-go-back
 
 go 1.15
 

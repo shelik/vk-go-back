@@ -9,10 +9,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/shelik/mtranslate/app"
-	apphttp "github.com/shelik/mtranslate/app/delivery/http"
-	apprepo "github.com/shelik/mtranslate/app/repo/http"
-	appusecase "github.com/shelik/mtranslate/app/usecase"
+	"github.com/shelik/vk-go-back/app"
+	apphttp "github.com/shelik/vk-go-back/app/delivery/http"
+	apprepo "github.com/shelik/vk-go-back/app/repo/http"
+	appusecase "github.com/shelik/vk-go-back/app/usecase"
 )
 
 // App ...

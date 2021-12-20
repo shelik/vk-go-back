@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/shelik/mtranslate/pkg/config"
-	"github.com/shelik/mtranslate/server"
+	"github.com/shelik/vk-go-back/pkg/config"
+	"github.com/shelik/vk-go-back/server"
 	"github.com/spf13/viper"
 )
 

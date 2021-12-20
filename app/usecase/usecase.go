@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 
-	"github.com/shelik/mtranslate/app"
+	"github.com/shelik/vk-go-back/app"
 )
 
 // Usecase ...
