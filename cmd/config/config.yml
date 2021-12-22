@@ -1,0 +1,6 @@
+db: ""
+port: 8888
+API_KEY: apikey
+VK: 
+  secureToken: "7aGhHgQHUYmwGWRMEQHk"
+  serviceToken: "072e9f46072e9f46072e9f46af0754116a0072e072e9f4666ee1992936b4d3ec713bad4"

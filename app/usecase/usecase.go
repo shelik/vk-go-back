@@ -19,8 +19,13 @@ func NewUsecase(repo app.Repository) *Usecase {
 	}
 }
 
-// Translate ...
+// GetGalleries ...
 func (u *Usecase) GetGalleries(ctx context.Context, ownerID string) []models.Gallery {
-	println("UC GetGalleries")
+
 	return u.repo.GetGalleries(ownerID)
+}
+
+// Translate ...
+func (u *Usecase) GetPhotos(ctx context.Context, ownerID string, galleryIDs []string) []models.Photo {
+	return u.repo.GetPhotos(ownerID, galleryIDs)
 }

@@ -12,5 +12,6 @@ func RegisterHTTPEndpoints(router *gin.Engine, uc app.Usecase) {
 	apiEndpoints := router.Group("/api")
 	{
 		apiEndpoints.GET("/get_galleries", h.GetGalleries)
+		apiEndpoints.POST("/get_photos", h.GetPhotos)
 	}
 }

@@ -10,3 +10,12 @@ type Gallery struct {
 	Updated     int    `json:"updated"`
 	Size        int    `json:"size"`
 }
+
+type Photo struct {
+	Id       int    `json:"id"`
+	Album_id int    `json:"album_id"`
+	Owner_id int    `json:"owner_id"`
+	User_id  int    `json:"user_id"`
+	Text     string `json:"text"`
+	Date     int    `json:"date"`
+}
