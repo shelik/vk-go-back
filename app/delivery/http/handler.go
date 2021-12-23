@@ -15,6 +15,7 @@ type Handler struct {
 
 type PhotoAlbums struct {
 	OwnerID string   `json:"owner_id"`
+	Token   string   `json:"token"`
 	Albums  []string `json:"gallery_ids"`
 }
 
@@ -28,8 +29,9 @@ func NewHandler(uc app.Usecase) *Handler {
 // HelloWorld ...
 func (h *Handler) GetGalleries(c *gin.Context) {
 	ownerID := c.Request.URL.Query().Get("owner_id")
+	token := c.Request.URL.Query().Get("token")
 
-	galleries := h.uc.GetGalleries(c.Request.Context(), ownerID)
+	galleries := h.uc.GetGalleries(c.Request.Context(), ownerID, token)
 
 	fmt.Println(galleries)
 	c.JSON(http.StatusOK, galleries)
@@ -48,7 +50,7 @@ func (h *Handler) GetPhotos(c *gin.Context) {
 	fmt.Println("From front:")
 	fmt.Println(photoAlbums.Albums)
 
-	photos := h.uc.GetPhotos(c.Request.Context(), photoAlbums.OwnerID, photoAlbums.Albums)
+	photos := h.uc.GetPhotos(c.Request.Context(), photoAlbums.OwnerID, photoAlbums.Token, photoAlbums.Albums)
 
 	c.JSON(http.StatusOK, photos)
 }

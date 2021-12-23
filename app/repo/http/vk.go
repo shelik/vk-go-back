@@ -88,7 +88,7 @@ func (r *HttpRepo) request(method string, params map[string]string) (result json
 	for key, value := range params {
 		paramValues.Add(key, value)
 	}
-	paramValues.Add("access_token", r.Token)
+	// paramValues.Add("access_token", r.Token)
 	paramValues.Add("lang", "ru")
 	paramValues.Add("v", "5.131")
 
@@ -149,10 +149,11 @@ func (r *HttpRepo) Close() error {
 }
 
 // GetGalleries ...
-func (r *HttpRepo) GetGalleries(ownerID string) []models.Gallery {
+func (r *HttpRepo) GetGalleries(ownerID, token string) []models.Gallery {
 	res := resultGalleries{}
 	params := make(map[string]string)
 	params["owner_id"] = ownerID
+	params["access_token"] = token
 
 	result, e := r.request("photos.getAlbums", params)
 	if e != nil {
@@ -165,7 +166,7 @@ func (r *HttpRepo) GetGalleries(ownerID string) []models.Gallery {
 }
 
 // Translate ...
-func (r *HttpRepo) GetPhotos(ownerID string, galleryIDs []string) []models.Photo {
+func (r *HttpRepo) GetPhotos(ownerID, token string, galleryIDs []string) []models.Photo {
 	var allPhotos []models.Photo
 
 	res := resultPhotos{}
@@ -173,6 +174,7 @@ func (r *HttpRepo) GetPhotos(ownerID string, galleryIDs []string) []models.Photo
 		params := make(map[string]string)
 		params["album_id"] = gID
 		params["owner_id"] = ownerID
+		params["access_token"] = token
 		params["count"] = "100"
 
 		result, e := r.request("photos.get", params)

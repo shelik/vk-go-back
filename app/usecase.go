@@ -8,6 +8,6 @@ import (
 
 // Usecase ...
 type Usecase interface {
-	GetGalleries(ctx context.Context, ownerID string) []models.Gallery
-	GetPhotos(ctx context.Context, ownerID string, galleryIDs []string) []models.Photo
+	GetGalleries(ctx context.Context, ownerID, token string) []models.Gallery
+	GetPhotos(ctx context.Context, ownerID, token string, galleryIDs []string) []models.Photo
 }
