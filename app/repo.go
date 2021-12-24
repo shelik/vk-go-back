@@ -6,5 +6,5 @@ import "github.com/shelik/vk-go-back/models"
 type Repository interface {
 	Close() error
 	GetGalleries(ownerID, token string) []models.Gallery
-	GetPhotos(ownerID, token string, galleryIDs []string) []models.Photo
+	GetPhotos(ownerID, token string, galleryIDs []string, count int) []models.Photo
 }

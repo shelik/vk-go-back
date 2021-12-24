@@ -9,5 +9,5 @@ import (
 // Usecase ...
 type Usecase interface {
 	GetGalleries(ctx context.Context, ownerID, token string) []models.Gallery
-	GetPhotos(ctx context.Context, ownerID, token string, galleryIDs []string) []models.Photo
+	GetPhotos(ctx context.Context, ownerID, token string, galleryIDs []string, count int) []models.Photo
 }

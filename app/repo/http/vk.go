@@ -9,6 +9,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strconv"
 	"time"
 
 	"github.com/shelik/vk-go-back/models"
@@ -166,7 +167,7 @@ func (r *HttpRepo) GetGalleries(ownerID, token string) []models.Gallery {
 }
 
 // Translate ...
-func (r *HttpRepo) GetPhotos(ownerID, token string, galleryIDs []string) []models.Photo {
+func (r *HttpRepo) GetPhotos(ownerID, token string, galleryIDs []string, count int) []models.Photo {
 	var allPhotos []models.Photo
 
 	res := resultPhotos{}
@@ -175,7 +176,7 @@ func (r *HttpRepo) GetPhotos(ownerID, token string, galleryIDs []string) []model
 		params["album_id"] = gID
 		params["owner_id"] = ownerID
 		params["access_token"] = token
-		params["count"] = "100"
+		params["count"] = strconv.Itoa(count)
 
 		result, e := r.request("photos.get", params)
 		if e != nil {
@@ -183,8 +184,6 @@ func (r *HttpRepo) GetPhotos(ownerID, token string, galleryIDs []string) []model
 		}
 
 		json.Unmarshal(result, &res)
-
-		fmt.Printf(`Photos count: %d`, res.Count)
 
 		allPhotos = append(allPhotos, res.Photos...)
 	}

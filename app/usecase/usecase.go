@@ -26,6 +26,6 @@ func (u *Usecase) GetGalleries(ctx context.Context, ownerID, token string) []mod
 }
 
 // Translate ...
-func (u *Usecase) GetPhotos(ctx context.Context, ownerID, token string, galleryIDs []string) []models.Photo {
-	return u.repo.GetPhotos(ownerID, token, galleryIDs)
+func (u *Usecase) GetPhotos(ctx context.Context, ownerID, token string, galleryIDs []string, count int) []models.Photo {
+	return u.repo.GetPhotos(ownerID, token, galleryIDs, count)
 }
